@@ -18,6 +18,12 @@ The Markdown flavor supported is
 sudo apt-get install texlive texlive-latex-extra tex-gyre lmodern
 ```
 
+To instead make use of the Vagrant box (assuming [the necessary prerequisites](https://www.vagrantup.com/docs/getting-started/)), just run:
+
+```
+vagrant up
+```
+
 ## Usage
 
 Clone the repo and create a new branch with a different Markdown file for your
@@ -26,6 +32,10 @@ resumé.
 To generate PDF and HTML versions of each .md file in the directory:
 
     $ make
+
+Or within the Vagrant box:
+
+    $ vagrant ssh -c "cd /vagrant && make"
 
 In order to enable visually appealing display of contact information, the
 Markdown is passed through a Python script that looks for contact details
@@ -37,6 +47,10 @@ By default, an image of your [Gravatar](http://www.gravatar.com) will be added
 to the HTML resumé.  To avoid this:
 
     $ GRAVATAR_OPTION=--no-gravatar make
+
+Or within the Vagrant box:
+
+    $ vagrant ssh -c "cd /vagrant && GRAVATAR_OPTION=--no-gravatar make"
 
 ## Unicode characters
 
